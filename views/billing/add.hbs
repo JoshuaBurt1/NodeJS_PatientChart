@@ -1,0 +1,22 @@
+{{!Billing add view}}
+<h1 class="display-5">{{title}}</h1>
+<div id="editFormOuter">
+  <div id="editFormInner">
+    <form method="POST">
+      <fieldset class="form-group">
+        <label for="code" class="col-2">Code:</label>
+        <input name="code" id="code" class="form-control" required />
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="description" class="col-2">Description:</label>
+        <input name="description" id="description" class="form-control" required />
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="insurance" class="col-2">Insurance:</label>
+        <input name="insurance" id="insurance" class="form-control" required />
+      </fieldset>
+      <button class="offset-3 btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>
+<p>Current source <a href="https://www.health.gov.on.ca/en/pro/programs/ohip/sob/physserv/sob_master.pdf">OHIP Billing Codes</a></p>

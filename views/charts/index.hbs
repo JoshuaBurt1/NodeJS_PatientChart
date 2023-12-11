@@ -1,0 +1,69 @@
+{{!chart index view}}
+<h1 class="display-5">{{title}}</h1>
+{{#if user}}
+    <a class="btn btn-primary" href="/charts/add">Add a new chart</a>
+{{/if}}
+<table class="table table-striped table-hover">
+  <thead>
+    <th>Billing Number</th>
+    <th>Patient Name</th>
+    <th>Last Updated</th>
+    <th>Primary Morbidity</th>
+    <th>Secondary Morbidities</th>
+    <th>Progress Notes</th>
+    <th>Medical Service</th>
+    <th>LHIN Status Update</th>
+    <th>Supply Order</th>
+    <th>Measurements (1ml : 1cm&sup3;)</th>
+    <th>Medical Image</th>
+    {{#if ./user}}
+    <th>Actions</th>
+    {{/if}}
+  </thead>
+  <!--for this type of application, no items should be visible to unauthorized users, 
+  but for assignment purposes BRN number (billing Number) contains the least sensitive information-->
+  <tbody>
+    {{#each dataset}}
+      <tr>
+        <td>{{this.brnNum}}</td>
+        {{#if ../user}}
+        <td>{{this.name}}</td>
+        <td id="td2"><ul id="cellList">{{this.updateDate}}</ul></td>
+        <td>{{this.icdCode.[0]}}</td> <!--Primary morbidity-->
+        <td>{{#each this.icdCode as |secondaryMorbidity index|}} <!--Secondary morbidity-->
+            {{#if index}}
+              {{secondaryMorbidity}}
+            {{/if}}
+            {{/each}}
+        </td>
+        <td id="td5">
+          <ul id="cellList">{{this.progressNote}}</ul> <!--cellList modifies how the entry is viewed (as a list)-->
+        </td>
+        <td>{{this.bill}}</td> <!--Medical Service-->
+        <td>{{this.lhinUpdate}}</td>
+        <td id="td3"><ul id="cellList">{{this.supplyOrder}}</ul></td> 
+        <td id="measurementData" data-measurement="{{this.measurement}}">{{this.measurement}}
+          <canvas id="myChart0" width="200" height="200"></canvas></td>
+
+        <td class="col-md-2"><img class="w-100" src="images/{{this.image}}"/></a></td> 
+    
+        <td id="action">
+          <a class="btn btn-info" id="buttonStyle" href="/charts/files/{{this._id}}">Files</a>  
+          <a class="btn btn-secondary" id="buttonStyle" href="/charts/amend/{{this._id}}">Amend</a>  
+          <a
+            class="btn btn-danger"
+            href="/charts/delete/{{this._id}}"
+            onclick="return confirmDeletion()"
+          >Delete</a>
+        </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<p class="capacity">Capacity: {{count}} /10</p>
+{{#if ./user}}
+{{else}}
+<p>Log in to view patient chart details</p>
+{{/if}}

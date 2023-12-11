@@ -1,0 +1,16 @@
+  <h1 class="display-5">{{title}}</h1>
+
+  <h1>Uploaded Files for Chart {{chartId}}</h1>
+  
+<ul>
+  {{#each fileList}}
+    <li>
+      <a href="/view{{chartId}}/{{this}}" target="_blank">{{this}}</a>
+    </li>
+  {{/each}}
+</ul>
+
+  <form action="/charts/files/{{chartId}}" method="post" enctype="multipart/form-data">
+    <input type="file" name="file"  accept=".jpg, .jpeg, .png, .pdf, .doc, .docx, .xls, .xlsx, .mp3, .mp4"  required>
+    <button type="submit">Upload File</button>
+  </form>

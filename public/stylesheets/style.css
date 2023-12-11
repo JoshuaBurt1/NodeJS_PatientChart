@@ -1,0 +1,157 @@
+.jumbotron {
+  background-color: rgb(51, 156, 231);
+  padding: 2%;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("/images/background.jpg");
+  background-size: cover; 
+  background-repeat: repeat; 
+  background-position: center; 
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  margin-bottom: 2%;
+}
+
+.demo{
+  font-style: italic;
+}
+
+.infoDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.infoBox {
+  flex-basis: calc(50% - 15px); 
+  box-sizing: border-box;
+  margin-bottom: 20px; 
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+.infoBox h1, .infoBox h3 {
+  margin-bottom: 0.5em;
+}
+
+.infoBox p {
+  margin-bottom: 1em;
+}
+
+.capacity{
+  font-weight: bold;
+}
+
+.on {
+  color: green;
+  font-weight: bold;
+}
+
+.off{
+  color: red;
+  font-weight: bold;
+}
+
+.supplyListStyle {
+  list-style-type: circle;
+}
+
+a {
+  color: #00b7ff;
+}
+
+content {
+  justify-content: center;
+  text-align: center;
+  flex: 1 0 auto;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+}
+
+.transparent-content {
+  justify-content: center;
+  text-align: center;
+  flex: 1 0 auto;
+  background-color: rgba(255, 255, 255, 0); /*For support.hbs only*/
+  border-radius: 10px;
+}
+
+#buttonStyle{
+  margin-bottom:5%;
+}
+
+#editFormOuter {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+#editFormInner {
+  text-align: left;
+}
+
+.form-groupR{
+  justify-content: center;
+}
+
+form fieldset {
+  margin-bottom: 2%;
+  width: 130%;
+}
+fieldset {
+  display: flex;
+  flex-direction: row;
+}
+fieldset label {
+  margin-top: 2%;
+  margin-right: 15%;
+  white-space: nowrap;
+}
+fieldset hr {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+#td2 {
+  list-style-type: none;
+}
+
+#langDiv {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+#langTable {
+  justify-content: center;
+  text-align: center;
+}
+
+#action {
+  text-align: left;
+}
+
+.btn-info{
+  margin-right:2%;
+}
+.registerP{
+  margin-right:2%;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:2%;
+  margin-left: 1%;
+  margin-right: 1%;
+  flex-shrink: 0;
+}

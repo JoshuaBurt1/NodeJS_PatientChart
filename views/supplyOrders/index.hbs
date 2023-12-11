@@ -1,0 +1,36 @@
+{{!supplyOrder index view}}
+<h1 class="display-5">{{title}}</h1>
+{{#if user}}
+<a class="btn btn-primary" href="/supplyOrders/add">Add a New Supply</a>
+{{/if}}
+
+<div id="langDiv">
+<table class="table" id="langTable">
+  <thead>
+    <tr>
+    <th>Code</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each dataset}}
+    <tr>
+      <td>{{this.code}}</td>
+      <td>{{this.description}}</td>
+      <td>{{this.amount}}</td>
+      {{#if ../user}}
+        <td>
+          <a
+            class="btn btn-danger"
+            href="/supplyOrders/delete/{{this._id}}"
+            onclick="return confirmDeletion()"
+          >Delete</a>
+        </td>
+        {{/if}}
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,94 @@
+{{!chart add view}}
+<h1 class="display-5">{{title}}</h1>
+<p>Note: separate Progress Notes with period followed by space (. )</p>
+<div id="editFormOuter">
+  <div id="editFormInner">
+<form method="POST">
+  <fieldset class="form-group">
+    <label for="brnNum" class="col-2">BRN Number:</label>
+    <input name="brnNum" id="brnNum" class="form-control" required value="{{chart.brnNum}}" />
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="name" class="col-2">Name:</label>
+    <input name="name" id="name" class="form-control" required value="{{chart.name}}" />
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="updateDate" class="col-2">Last Update:</label>
+    <input
+      name="updateDate"
+      id="updateDate"
+      required
+      type="date"
+      value="{{chart.updateDate}}" class="form-control"
+    />
+    <input name="updateDate" id="updateDate"
+      required
+      type="time"
+      value="{{chart.updateDate}}" class="form-control"/>
+  </fieldset>
+  
+  <fieldset class="form-group">
+    <label for="icdCode" class="col-2">Primary Morbidity:</label>
+    <select name="icdCode" id="icdCode" class="form-control" required value="{{chart.icdCode}}">
+      {{#each icdCodes}}
+        {{createOptionElement this.description ../chart.icdCode.[0]}} <!--Since icdCode is Array, must set element to show previous-->
+      {{/each}}
+    </select>
+  </fieldset>
+<fieldset class="form-group">
+    <label for="icdCode" class="col-2">Secondary Morbidity:</label>
+    <select name="icdCode" id="icdCode" class="form-control" required value="{{chart.icdCode}}">
+      {{#each icdCodes}}
+        {{createOptionElement this.description ../chart.icdCode.[1]}} <!--Since icdCode is Array, must set element to show previous-->
+      {{/each}}
+    </select>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="progressNote" class="col-2">Progress Notes:</label>
+    <input name="progressNote" id="progressNote" class="form-control" required value="{{chart.progressNote}}" />
+  </fieldset>
+  <fieldset class="form-group">
+    {{!Dropdown for Status }}
+    <label for="lhinUpdate" class="col-2">LHIN Updates:</label>
+    <select name="lhinUpdate" id="lhinUpdate" class="form-control">
+      {{createOptionElement "Admit" chart.lhinUpdate}}
+      {{createOptionElement "Request Enterostomal Therapy consult" chart.lhinUpdate}}
+      {{createOptionElement "Request Physiotherapist consult" chart.lhinUpdate}}
+      {{createOptionElement "Request Occupational Therapy consult" chart.lhinUpdate}}
+      {{createOptionElement "Request 1 month block, daily nursing visits" chart.lhinUpdate}}
+      {{createOptionElement "Request 1 month block, q2d nursing visits" chart.lhinUpdate}}
+      {{createOptionElement "Request 1 month block, weekly nursing visits" chart.lhinUpdate}}
+      {{createOptionElement "Request 3 month block, monthly nursing visits" chart.lhinUpdate}}
+      {{createOptionElement "Discharged" chart.lhinUpdate}}
+    </select>
+  </fieldset>
+  
+   <fieldset class="form-group">
+    <label for="bill" class="col-2">Billing:</label>
+    <select name="bill" id="bill" class="form-control">
+      {{#each billing}}
+        {{createOptionElement this.description ../chart.bill}}
+      {{/each}}
+    </select>
+  </fieldset>
+  
+  <fieldset class="form-group">
+    <label for="supplyOrder" class="col-2">Supply Order:</label>
+    <select name="supplyOrder" id="supplyOrder" class="form-control" multiple>
+      {{#each supplyOrders}}
+        {{createOptionElement this.description ../chart.supplyOrder}}
+      {{/each}}
+    </select>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="measurement" class="col-2">Measurement:</label>
+    <input name="measurement" id="measurement" class="form-control" required value="{{chart.measurement}}" />
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="image" class="col-2">Medical Image:</label>
+    <input name="image" id="image" class="form-control" required value="noImage.png"/>
+  </fieldset>
+  <button class="offset-3 btn btn-primary">Save</button>
+</form>
+</div>
+</div>

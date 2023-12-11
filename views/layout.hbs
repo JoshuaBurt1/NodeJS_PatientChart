@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    {{! Bootstrap JS}}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    {{!Delete chart script}}
+    <script defer src="/javascripts/scripts.js"></script>
+    {{!Cell list script - unordered list under "Issue" table header}}
+    <script defer src="/javascripts/cellList.js"></script>
+    {{!Chart.js library and data-loading script}}
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="/javascripts/measurement.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <h1 class="display-2">Patient Chart Online</h1>
+      <p class="lead">Healthcare provider charting in an all-in-one simple application</p>
+    </div>
+    <!--Nav-bar-->
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Charts">Charts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Support">Support</a>
+          </li>
+          {{#if user}}<div
+              class="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >Provider Portal </a>
+                  <ul class="dropdown-menu" id="developerDropdown">
+                    <a class="dropdown-item" href="/icdCodes">ICD Codes</a>
+                    <a class="dropdown-item" href="/billing">Service Billing</a>
+                    <a class="dropdown-item" href="/supplyOrders">Medical Supply Order</a>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          {{/if}}
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {{#if user}}
+            <li class="nav-item"><a
+                class="nav-link"
+                href="#"
+              >{{user.username}}</a></li>
+            <li class="nav-item"><a
+                class="nav-link"
+                href="/Logout"
+              >Logout</a></li>
+          {{else}}
+            <li class="nav-item"><a
+                class="nav-link"
+                href="/Register"
+              >Register</a></li>
+            <li class="nav-item"><a
+                class="nav-link"
+                href="/Login"
+              >Login</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+    <content class="{{#if isTransparent}}transparent-content{{/if}}">{{{body}}}</content> <!--to control background for support.hbs-->
+    <footer>
+      <h5>
+        <a
+          class="nav-link"
+          href="https://github.com/JoshuaBurt1"
+          target="_blank"
+        >Github</a></h5>
+      <h5><a
+          class="nav-link"
+          href="https://www.linkedin.com/in/joshua-burt-7963a126b/"
+          target="_blank"
+        >LinkedIn</a></h5>
+      {{#if user}}
+        <p>Logged In</p>
+      {{else}}
+        <p>Not Logged In</p>
+      {{/if}}
+    </footer>
+  </body>
+</html>
