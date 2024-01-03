@@ -25,6 +25,10 @@ nav {
   font-style: italic;
 }
 
+#italic {
+  font-style: italic;
+}
+
 .infoDisplay {
   display: flex;
   flex-wrap: wrap;
