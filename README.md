@@ -10,4 +10,4 @@ Provider portal, is for a demo of how health record coding, billing, and supplie
 The point is to add information once, which can then be viewable to the entire healthcare team - rather than making multiple notes in different formats like fax, personal doctor email, which can be unreliable and is time consuming. An additional feature that could be added is to allow certain data viewing & transfer permissions to work with laws/company policy. Other features that can be added are data aggregation from multiple patients with the same ICD code (morbidity) and their progress to find the best plan of care (treatments). 
 
 # Link to live site
-https://patientchartonline.azurewebsites.net
+https://patientchartonline1.azurewebsites.net
