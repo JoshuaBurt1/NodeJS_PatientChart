@@ -25,7 +25,7 @@
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid">
-      <h1 class="display-2">Patient Chart Online</h1>
+      <h1 class="display-2">Outpatient Chart Online</h1>
       <p class="lead">Healthcare provider charting in an all-in-one simple application</p>
     </div>
     <!--Nav-bar-->
@@ -38,9 +38,21 @@
           <li class="nav-item">
             <a class="nav-link" href="/Charts">Charts</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Support">Support</a>
-          </li>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >Staff (User) Resources</a>
+              <ul class="dropdown-menu" id="developerDropdown">
+                <a class="nav-link" href="/support">Support</a>
+                <a class="nav-link" href="/education">Education</a>
+              </ul>
+            </li>
+          </ul>
           {{#if user}}<div
               class="collapse navbar-collapse"
               id="navbarSupportedContent"
@@ -53,7 +65,7 @@
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
-                  >Provider Portal </a>
+                  >Provider (Admin) Portal </a>
                   <ul class="dropdown-menu" id="developerDropdown">
                     <a class="dropdown-item" href="/icdCodes">ICD Codes</a>
                     <a class="dropdown-item" href="/billing">Service Billing</a>

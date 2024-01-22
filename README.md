@@ -9,5 +9,22 @@ You can view associated patient files from File button.
 Provider portal, is for a demo of how health record coding, billing, and supplies can be combined in a single software application.
 The point is to add information once, which can then be viewable to the entire healthcare team - rather than making multiple notes in different formats like fax, personal doctor email, which can be unreliable and is time consuming. An additional feature that could be added is to allow certain data viewing & transfer permissions to work with laws/company policy. Other features that can be added are data aggregation from multiple patients with the same ICD code (morbidity) and their progress to find the best plan of care (treatments). 
 
-# Link to live site
-https://patientchartonline1.azurewebsites.net
+### Project setup
+```
+Install node.js
+
+//Open code editor
+Install dependencies: npm i ...
+
+Run server: nodemon
+
+local host testing: view webpage @ http://localhost:3000
+deployed webpage: https://patientchartonline1.azurewebsites.net/
+
+```
+
+### Capabilities 
+```
+~CRUD
+~Document upload
+```
