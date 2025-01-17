@@ -79,5 +79,9 @@ router.get("/charts/index", (req, res, next) => {
 router.get("/support", (req, res, next) => {
   res.render("support", { isTransparent: true, title: "Support", user: req.user });
 });
+// GET handler for /support
+router.get("/education", (req, res, next) => {
+  res.render("education", { isTransparent: true, title: "Medical/Nursing Skill Resource", user: req.user });
+});
 
 module.exports = router;
